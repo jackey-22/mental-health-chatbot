@@ -1,48 +1,83 @@
 .message-bubble {
-  max-width: 70%;
-  margin-bottom: 16px;
-  animation: fadeIn 0.3s ease-in;
+  max-width: 85%;
+  margin-bottom: 0;
+  animation: fadeIn 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  display: flex;
+  gap: 12px;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(16px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 .message-bubble.user {
   align-self: flex-end;
   margin-left: auto;
+  flex-direction: row-reverse;
 }
 
 .message-bubble.bot {
   align-self: flex-start;
   margin-right: auto;
+  flex-direction: row;
 }
 
 .message-content {
-  padding: 12px 16px;
-  border-radius: 18px;
+  padding: 14px 20px;
+  border-radius: 20px;
   word-wrap: break-word;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: 15px;
+  max-width: 100%;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .message-bubble.user .message-content {
   background: linear-gradient(135deg, #8a7cb4 0%, #9b8fc5 100%);
   color: white;
-  border-bottom-right-radius: 4px;
-  box-shadow: 0 2px 8px rgba(138, 124, 180, 0.2);
+  border-bottom-right-radius: 8px;
+  box-shadow: 
+    0 10px 28px rgba(138, 124, 180, 0.28),
+    0 5px 14px rgba(138, 124, 180, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .message-bubble.bot .message-content {
-  background: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, #fdfcfb 100%);
   color: #2d2d2d;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.1),
+    0 5px 14px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  border: 1.5px solid rgba(138, 124, 180, 0.15);
+  letter-spacing: 0.3px;
+}
+
+.message-bubble.user:hover .message-content {
+  box-shadow: 
+    0 14px 36px rgba(138, 124, 180, 0.35),
+    0 7px 18px rgba(138, 124, 180, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+}
+
+.message-bubble.bot:hover .message-content {
+  box-shadow: 
+    0 14px 36px rgba(0, 0, 0, 0.15),
+    0 7px 18px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-3px);
 }
 
