@@ -83,13 +83,15 @@ const Home = () => {
               </button>
               <button 
                 className="btn-secondary btn-fancy-secondary"
-                onClick={() => {
-                  document.getElementById('how-it-works').scrollIntoView({ 
-                    behavior: 'smooth' 
-                  });
-                }}
+                onClick={() => navigate('/assessment')}
               >
-                <span>How this helps</span>
+                <span>Take PHQ-9 Assessment</span>
+              </button>
+              <button 
+                className="btn-secondary btn-fancy-secondary"
+                onClick={() => navigate('/analytics')}
+              >
+                <span>View Analytics</span>
               </button>
             </div>
           </div>

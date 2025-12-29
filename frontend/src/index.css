@@ -10,9 +10,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   background: #faf9f7;
   min-height: 100vh;
   color: #2d2d2d;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 /* Hide scrollbar for all elements */

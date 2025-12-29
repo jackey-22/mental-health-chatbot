@@ -14,6 +14,21 @@ const chatSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    sentiment: {
+      score: {
+        type: Number,
+        default: 0,
+      },
+      comparative: {
+        type: Number,
+        default: 0,
+      },
+      label: {
+        type: String,
+        enum: ['positive', 'negative', 'neutral'],
+        default: 'neutral',
+      },
+    },
   },
   {
     timestamps: true,

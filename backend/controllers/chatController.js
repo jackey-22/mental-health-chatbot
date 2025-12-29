@@ -1,5 +1,7 @@
 const Chat = require('../models/Chat');
 const { getChatResponse } = require('../services/geminiService');
+const Sentiment = require('sentiment');
+const sentiment = new Sentiment();
 
 // Crisis keywords to detect
 const CRISIS_KEYWORDS = [
@@ -39,7 +41,7 @@ You don't have to go through this alone. There is help available, and things can
 // Main chat controller
 const chatController = async (req, res) => {
   try {
-    const { message } = req.body;
+    const { message, conversationHistory } = req.body;
 
     // Validate input
     if (!message || typeof message !== 'string' || message.trim().length === 0) {
@@ -50,8 +52,34 @@ const chatController = async (req, res) => {
 
     const userMessage = message.trim();
 
-    // Crisis detection - MUST happen before Gemini API call
-    if (detectCrisis(userMessage)) {
+    // Crisis detection - MUST happen before sentiment analysis
+    const isCrisisMessage = detectCrisis(userMessage);
+
+    // Analyze sentiment of user message
+    let sentimentData;
+    if (isCrisisMessage) {
+      // Override sentiment for crisis messages - they are always highly negative
+      sentimentData = {
+        score: -10, // Strong negative score for crisis
+        comparative: -1.5,
+        label: 'negative',
+      };
+    } else {
+      // Normal sentiment analysis
+      const sentimentResult = sentiment.analyze(userMessage);
+      let sentimentLabel = 'neutral';
+      if (sentimentResult.score > 0) sentimentLabel = 'positive';
+      else if (sentimentResult.score < 0) sentimentLabel = 'negative';
+
+      sentimentData = {
+        score: sentimentResult.score,
+        comparative: sentimentResult.comparative,
+        label: sentimentLabel,
+      };
+    }
+
+    // Handle crisis messages
+    if (isCrisisMessage) {
       const crisisResponse = getCrisisResponse();
 
       // Save to database
@@ -59,6 +87,7 @@ const chatController = async (req, res) => {
         userMessage,
         botReply: crisisResponse.reply,
         isCrisis: true,
+        sentiment: sentimentData,
       });
 
       return res.json({
@@ -66,10 +95,10 @@ const chatController = async (req, res) => {
       });
     }
 
-    // Normal flow: Get response from Gemini API
+    // Normal flow: Get response from Gemini API with conversation history
     let botReply;
     try {
-      botReply = await getChatResponse(userMessage);
+      botReply = await getChatResponse(userMessage, conversationHistory || []);
     } catch (error) {
       // Never expose raw Gemini API errors to users
       console.error('Error getting AI response:', error);
@@ -82,11 +111,13 @@ const chatController = async (req, res) => {
       userMessage,
       botReply,
       isCrisis: false,
+      sentiment: sentimentData,
     });
 
     // Return response
     res.json({
       reply: botReply,
+      sentiment: sentimentData,
     });
   } catch (error) {
     console.error('Chat controller error:', error);
