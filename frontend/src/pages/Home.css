@@ -444,23 +444,6 @@
   gap: 16px;
 }
 
-.chat-preview-messages::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat-preview-messages::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.chat-preview-messages::-webkit-scrollbar-thumb {
-  background: rgba(138, 124, 180, 0.3);
-  border-radius: 3px;
-}
-
-.chat-preview-messages::-webkit-scrollbar-thumb:hover {
-  background: rgba(138, 124, 180, 0.5);
-}
-
 .preview-message {
   max-width: 75%;
   animation: messageSlideIn 0.5s ease-out both;
