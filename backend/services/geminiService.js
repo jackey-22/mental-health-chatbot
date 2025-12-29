@@ -110,10 +110,10 @@ Your tone: Like a caring friend who listens well, not a textbook or doctor.`;
 const getChatResponse = async (userMessage, conversationHistory = []) => {
   // Try different model names in order of preference
   const modelNames = [
-    'gemini-2.5-flash',
-    'gemini-flash-latest',
-    'gemini-2.5-pro',
-    'gemini-pro-latest'
+    'gemini-2.5-flash',      // Fast and stable (recommended)
+    'gemini-flash-latest',   // Always the latest flash model
+    'gemini-2.5-pro',        // More capable for complex responses
+    'gemini-2.0-flash'       // Fallback option
   ];
 
   // Build conversation context
@@ -167,9 +167,9 @@ const getChatResponse = async (userMessage, conversationHistory = []) => {
   // Provide more specific error message
   if (lastError?.message?.includes('API key') || lastError?.message?.includes('401')) {
     throw new Error('Invalid or missing Gemini API key. Please check your GEMINI_API_KEY in .env file');
-  } else if (lastError?.message?.includes('quota') || lastError?.message?.includes('rate limit') || lastError?.status === 429) {
-    throw new Error('Gemini API quota exceeded or rate limited. Please try again later.');
-  } else if (lastError?.status === 404) {
+  } else if (lastError?.message?.includes('quota') || lastError?.message?.includes('rate limit') || lastError?.status === 429 || lastError?.message?.includes('429')) {
+    throw new Error('Gemini API quota exceeded or rate limited. Please wait a few minutes and try again. Consider upgrading your API plan for higher limits.');
+  } else if (lastError?.status === 404 || lastError?.message?.includes('404')) {
     throw new Error('Gemini model not found. Please check if the model name is correct.');
   } else {
     throw new Error(`Failed to get response from AI service: ${lastError?.message || 'Unknown error'}`);
