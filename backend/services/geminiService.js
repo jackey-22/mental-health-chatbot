@@ -32,11 +32,12 @@ Always respond with compassion and understanding. Keep responses concise but war
 
 const getChatResponse = async (userMessage) => {
   // Try different model names in order of preference
-  // Available models: gemini-pro, gemini-1.5-pro, gemini-1.5-flash
+  // Available models as of Dec 2025: gemini-2.5-flash, gemini-2.5-pro, gemini-flash-latest, gemini-pro-latest
   const modelNames = [
-    'gemini-1.5-flash',  // Fast and stable (recommended)
-    'gemini-1.5-pro',    // More capable
-    'gemini-pro'         // Fallback
+    'gemini-2.5-flash',      // Fast and stable (recommended)
+    'gemini-flash-latest',   // Always the latest flash model
+    'gemini-2.5-pro',        // More capable
+    'gemini-pro-latest'      // Fallback to latest pro
   ];
 
   // Combine system prompt with user message
