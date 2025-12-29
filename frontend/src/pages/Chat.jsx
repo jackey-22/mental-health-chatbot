@@ -132,33 +132,7 @@ const Chat = () => {
               </div>
             </div>
           </div>
-          <button 
-            className="new-chat-button" 
-            onClick={handleNewConversation}
-            title="Start new conversation"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 5v14M5 12h14"/>
-            </svg>
-            New Chat
-          </button>
         </div>
-        {showNewChatConfirm && (
-          <div className="new-chat-modal">
-            <div className="modal-content">
-              <h3>Start a new conversation?</h3>
-              <p>Your current conversation will remain in history. You can start fresh or continue here.</p>
-              <div className="modal-actions">
-                <button className="btn-confirm" onClick={confirmNewConversation}>
-                  Start New
-                </button>
-                <button className="btn-cancel" onClick={cancelNewConversation}>
-                  Continue Here
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
         
         <div className="header-disclaimer">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -212,6 +186,17 @@ const Chat = () => {
           <div className="input-actions">
             <button 
               type="button"
+              className="action-btn new-chat-action"
+              onClick={handleNewConversation}
+              title="Start New Chat"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+              New Chat
+            </button>
+            <button 
+              type="button"
               className="action-btn"
               onClick={() => navigate('/assessment')}
               title="Take PHQ-9 Assessment"
@@ -249,6 +234,24 @@ const Chat = () => {
           </div>
         </form>
       </div>
+
+      {/* New Chat Confirmation Modal */}
+      {showNewChatConfirm && (
+        <div className="new-chat-modal">
+          <div className="modal-content">
+            <h3>Start a new conversation?</h3>
+            <p>Your current conversation will remain in history. You can start fresh or continue here.</p>
+            <div className="modal-actions">
+              <button className="btn-confirm" onClick={confirmNewConversation}>
+                Start New
+              </button>
+              <button className="btn-cancel" onClick={cancelNewConversation}>
+                Continue Here
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

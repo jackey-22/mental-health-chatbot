@@ -1,3 +1,8 @@
+/* ==========================================
+   MENTAL HEALTH ANALYTICS - HOME PAGE THEME
+   Warm, Soft, Emotionally Safe Design
+   ========================================== */
+
 /* Reset and Base Styles */
 * {
   box-sizing: border-box;
@@ -5,26 +10,115 @@
   padding: 0;
 }
 
+/* === Base Container with Animated Orbs === */
 .analytics-container {
   min-height: 100vh;
-  background: #f8fafc;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #faf9f7;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Background Orbs - Matching Home Page */
+.analytics-container::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(138, 124, 180, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: orbFloat1 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.analytics-container::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(138, 124, 180, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: orbFloat2 25s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Additional floating orbs */
+.analytics-container .content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1.15);
+  }
 }
 
 /* Loading State */
 .analytics-loading {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, rgba(138, 124, 180, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Cards */
+/* Cards - Enhanced with Home Theme */
 .analytics-container .MuiCard-root {
   display: flex !important;
   flex-direction: column !important;
   height: 100% !important;
+  background: #fff !important;
+  box-shadow: 0 8px 30px rgba(138, 124, 180, 0.08) !important;
+  border: 1px solid rgba(138, 124, 180, 0.1) !important;
+  border-radius: 24px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: visible !important;
+}
+
+.analytics-container .MuiCard-root::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, rgba(138, 124, 180, 0.15), rgba(155, 143, 197, 0.15));
+  border-radius: 24px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.analytics-container .MuiCard-root:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(138, 124, 180, 0.15) !important;
+  border-color: rgba(138, 124, 180, 0.2) !important;
+}
+
+.analytics-container .MuiCard-root:hover::before {
+  opacity: 1;
 }
 
 .analytics-container .MuiCardContent-root {
@@ -33,9 +127,17 @@
   flex-direction: column !important;
 }
 
-/* Stat Cards */
+/* Stat Cards - Purple Gradient Theme */
 .analytics-container .MuiPaper-root {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(138, 124, 180, 0.12) !important;
+  border-radius: 24px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: #fff !important;
+}
+
+.analytics-container .MuiPaper-root:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(138, 124, 180, 0.2) !important;
 }
 
 /* Grid Items */
@@ -57,9 +159,10 @@
 .analytics-container .recharts-default-tooltip {
   background: white !important;
   border: none !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
-  padding: 12px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(138, 124, 180, 0.15) !important;
+  padding: 16px !important;
+  border: 1px solid rgba(138, 124, 180, 0.1) !important;
 }
 
 /* Typography */
@@ -70,6 +173,66 @@
 .analytics-container h5,
 .analytics-container h6 {
   line-height: 1.2 !important;
+  color: #2d3748;
+}
+
+/* Icon Styling */
+.analytics-container .MuiSvgIcon-root {
+  color: rgba(138, 124, 180, 0.9);
+}
+
+/* Button Styling */
+.analytics-container .MuiButton-root {
+  border-radius: 12px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 10px 24px !important;
+  background: linear-gradient(135deg, rgba(138, 124, 180, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(138, 124, 180, 0.25) !important;
+  transition: all 0.3s ease !important;
+}
+
+.analytics-container .MuiButton-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(138, 124, 180, 0.35) !important;
+}
+
+/* Icon Button Styling */
+.analytics-container .MuiIconButton-root {
+  background: rgba(138, 124, 180, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.analytics-container .MuiIconButton-root:hover {
+  background: rgba(138, 124, 180, 0.2) !important;
+  transform: rotate(90deg);
+}
+
+/* Chip Styling */
+.analytics-container .MuiChip-root {
+  background: rgba(138, 124, 180, 0.1) !important;
+  color: rgba(138, 124, 180, 0.9) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+/* Divider */
+.analytics-container .MuiDivider-root {
+  border-color: rgba(138, 124, 180, 0.1) !important;
+}
+
+/* List Items */
+.analytics-container .MuiListItem-root {
+  border-radius: 12px !important;
+  margin-bottom: 8px !important;
+  transition: all 0.3s ease !important;
+  background: #fff !important;
+}
+
+.analytics-container .MuiListItem-root:hover {
+  background: rgba(138, 124, 180, 0.05) !important;
+  transform: translateX(4px);
 }
 
 /* Responsive Design */
@@ -85,7 +248,7 @@
   }
   
   .analytics-container .MuiCard-root {
-    border-radius: 12px !important;
+    border-radius: 16px !important;
   }
   
   .recharts-wrapper {
@@ -95,13 +258,24 @@
   .recharts-text {
     font-size: 11px !important;
   }
+  
+  /* Hide some orbs on mobile for performance */
+  .analytics-container::before {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .analytics-container::after {
+    width: 350px;
+    height: 350px;
+  }
 }
 
-/* Animation */
+/* Animation for content entrance */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -110,202 +284,94 @@
 }
 
 .analytics-container .MuiGrid-item {
-  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  animation-fill-mode: both;
+  animation: fadeInUp 0.6s ease-out backwards;
 }
 
-.analytics-container .MuiGrid-item:nth-child(1) { animation-delay: 0.05s; }
-.analytics-container .MuiGrid-item:nth-child(2) { animation-delay: 0.1s; }
-.analytics-container .MuiGrid-item:nth-child(3) { animation-delay: 0.15s; }
-.analytics-container .MuiGrid-item:nth-child(4) { animation-delay: 0.2s; }
-
-.recharts-tooltip-label {
-  color: #1f2937 !important;
-  font-weight: 600 !important;
-  margin-bottom: 8px !important;
+.analytics-container .MuiGrid-item:nth-child(1) {
+  animation-delay: 0.1s;
 }
 
-.recharts-tooltip-item {
-  color: #6b7280 !important;
+.analytics-container .MuiGrid-item:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-/* Pie Chart */
-.recharts-pie-sector {
-  stroke: white !important;
-  stroke-width: 2px !important;
+.analytics-container .MuiGrid-item:nth-child(3) {
+  animation-delay: 0.3s;
 }
 
-/* Bar Chart */
-.recharts-bar-rectangle {
-  transition: opacity 0.2s ease !important;
-  cursor: pointer !important;
+.analytics-container .MuiGrid-item:nth-child(4) {
+  animation-delay: 0.4s;
 }
 
-.recharts-bar-rectangle:hover {
-  opacity: 0.8 !important;
+/* Scrollbar Styling */
+.analytics-container::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Line Chart */
-.recharts-line-curve {
-  stroke-linecap: round !important;
-  stroke-linejoin: round !important;
+.analytics-container::-webkit-scrollbar-track {
+  background: rgba(138, 124, 180, 0.05);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .analytics-card-content {
-    padding: 20px !important;
-  }
-  
-  .stats-card {
-    padding: 20px !important;
-    height: 140px !important;
-  }
+.analytics-container::-webkit-scrollbar-thumb {
+  background: rgba(138, 124, 180, 0.3);
+  border-radius: 4px;
 }
 
-@media (max-width: 900px) {
-  .analytics-grid {
-    margin: -8px !important;
-  }
-  
-  .analytics-grid-item {
-    padding: 8px !important;
-  }
-  
-  .analytics-card-content {
-    padding: 16px !important;
-  }
-  
-  .stats-card {
-    padding: 16px !important;
-    height: 120px !important;
-  }
+.analytics-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(138, 124, 180, 0.5);
 }
 
-@media (max-width: 600px) {
-  .analytics-card {
-    border-radius: 12px !important;
-  }
-  
-  .stats-card {
-    border-radius: 12px !important;
-    height: 140px !important;
-  }
-  
-  .analytics-icon-button {
-    width: 40px !important;
-    height: 40px !important;
-  }
-  
-  .recharts-default-tooltip {
-    font-size: 12px !important;
-    padding: 8px !important;
-  }
+/* Chart Specific Enhancements */
+.analytics-container .recharts-pie-sector {
+  filter: drop-shadow(0 2px 8px rgba(138, 124, 180, 0.2));
+  transition: all 0.3s ease;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.analytics-container .recharts-pie-sector:hover {
+  filter: drop-shadow(0 4px 16px rgba(138, 124, 180, 0.3));
 }
 
-.analytics-card {
-  animation: fadeInUp 0.5s ease-out;
+.analytics-container .recharts-area {
+  filter: drop-shadow(0 2px 8px rgba(138, 124, 180, 0.1));
 }
 
-/* Utility Classes */
-.text-center {
-  text-align: center !important;
+.analytics-container .recharts-bar-rectangle {
+  transition: all 0.3s ease;
 }
 
-.text-left {
-  text-align: left !important;
+/* Success/Error States */
+.analytics-container .success-state {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 12px 20px;
+  border-radius: 12px;
+  border-left: 4px solid #10b981;
 }
 
-.flex-center {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+.analytics-container .error-state {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 12px 20px;
+  border-radius: 12px;
+  border-left: 4px solid #ef4444;
 }
 
-.flex-column {
-  display: flex !important;
-  flex-direction: column !important;
+/* Empty State */
+.analytics-container .empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(138, 124, 180, 0.6);
 }
 
-/* Container Padding */
-.MuiContainer-root {
-  padding-left: 16px !important;
-  padding-right: 16px !important;
+.analytics-container .empty-state-icon {
+  font-size: 64px !important;
+  color: rgba(138, 124, 180, 0.3);
+  margin-bottom: 16px;
 }
 
-@media (min-width: 600px) {
-  .MuiContainer-root {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-  }
-}
-
-@media (min-width: 1200px) {
-  .MuiContainer-root {
-    padding-left: 32px !important;
-    padding-right: 32px !important;
-  }
-}
-
-/* Override Material-UI defaults */
-.MuiCard-root {
-  border-radius: 16px !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-  border: 1px solid #e5e7eb !important;
-}
-
-.MuiCardContent-root {
-  padding: 24px !important;
-}
-
-.MuiPaper-root {
-  border-radius: 12px !important;
-}
-
-/* Ensure equal heights for half-width cards */
-.MuiGrid-item > .MuiCard-root {
-  height: 100% !important;
-  min-height: 400px !important;
-}
-
-/* Row spacing */
-.MuiGrid-spacing-xs-3 {
-  width: calc(100% + 24px) !important;
-  margin: -12px !important;
-}
-
-.MuiGrid-spacing-xs-3 > .MuiGrid-item {
-  padding: 12px !important;
-}
-
-/* Full width card specific */
-.full-width-card .MuiCardContent-root {
-  padding: 24px !important;
-}
-
-/* Chart containers */
-.chart-container {
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 300px !important;
-}
-
-/* Stats value alignment */
-.stats-value {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100% !important;
+/* Focus States for Accessibility */
+.analytics-container *:focus-visible {
+  outline: 2px solid rgba(138, 124, 180, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

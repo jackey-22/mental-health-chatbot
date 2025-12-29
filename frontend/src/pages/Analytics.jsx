@@ -314,10 +314,10 @@ const Analytics = () => {
               <Grid item xs={12} sm={6} md={3} key={index}>
                 <Paper sx={{
                   p: 2.5,
-                  background: 'rgba(255,255,255,0.1)',
+                  background: 'rgba(255,255,255,0.95)',
                   backdropFilter: 'blur(10px)',
                   borderRadius: { xs: 14, md: 16 },
-                  border: '1px solid rgba(255,255,255,0.2)',
+                  border: '1px solid rgba(255,255,255,0.8)',
                   transition: 'all 0.3s ease',
                   height: { xs: 140, md: 160 },
                   display: 'flex',
@@ -325,10 +325,11 @@ const Analytics = () => {
                   justifyContent: 'center',
                   alignItems: 'center',
                   textAlign: 'center',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
                   '&:hover': {
-                    background: 'rgba(255,255,255,0.15)',
+                    background: 'rgba(255,255,255,1)',
                     transform: 'translateY(-4px)',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
+                    boxShadow: '0 8px 30px rgba(0,0,0,0.25)'
                   }
                 }}>
                   <Box sx={{ 
@@ -358,7 +359,7 @@ const Analytics = () => {
                     </Box>
                     <Box sx={{ width: '100%' }}>
                       <Typography variant="body2" sx={{ 
-                        color: 'rgba(255,255,255,0.9)',
+                        color: '#64748b',
                         fontSize: { xs: '0.813rem', md: '0.875rem' },
                         fontWeight: 600,
                         mb: 0.5,
@@ -367,7 +368,7 @@ const Analytics = () => {
                         {stat.title}
                       </Typography>
                       <Typography variant="h4" sx={{ 
-                        color: '#fff', 
+                        color: '#1e293b', 
                         fontWeight: 700,
                         fontSize: { xs: '1.75rem', md: '2rem' },
                         lineHeight: 1.1,

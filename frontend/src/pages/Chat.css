@@ -339,31 +339,24 @@
   }
 }
 
-/* New Chat Button */
-.new-chat-button {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 18px;
-  background: linear-gradient(135deg, #8a7cb4 0%, #9b8fc5 100%);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(138, 124, 180, 0.25);
+/* New Chat Button - Relocated to Input Actions */
+.new-chat-action {
+  background: linear-gradient(135deg, #8a7cb4 0%, #9b8fc5 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 3px 10px rgba(138, 124, 180, 0.3) !important;
 }
 
-.new-chat-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(138, 124, 180, 0.35);
+.new-chat-action:hover {
+  background: linear-gradient(135deg, #9b8fc5 0%, #8a7cb4 100%) !important;
+  box-shadow: 0 5px 15px rgba(138, 124, 180, 0.4) !important;
+  transform: translateY(-2px) !important;
 }
 
-.new-chat-button svg {
+.new-chat-action svg {
   width: 18px;
   height: 18px;
+  stroke-width: 2.5;
 }
 
 /* New Chat Modal */
