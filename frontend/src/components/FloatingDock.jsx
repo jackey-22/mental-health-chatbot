@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   ChatBubbleOutline as ChatIcon,
-  Home as HomeIcon 
+  Home as HomeIcon,
+  Assignment as AssessmentIcon
 } from '@mui/icons-material';
 import './FloatingDock.css';
 
@@ -17,6 +18,13 @@ const FloatingDock = () => {
       label: 'Chat', 
       icon: <ChatIcon />, 
       path: '/chat',
+      color: '#8a7cb4'
+    },
+    { 
+      id: 'assessment', 
+      label: 'Assessment', 
+      icon: <AssessmentIcon />, 
+      path: '/assessment',
       color: '#8a7cb4'
     },
   ];

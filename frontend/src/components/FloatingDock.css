@@ -54,13 +54,13 @@
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  background: linear-gradient(135deg, rgba(138, 124, 180, 0.08), rgba(138, 124, 180, 0.04));
-  border: 1px solid rgba(138, 124, 180, 0.15);
+  background: rgba(138, 124, 180, 0.08);
+  border: 1px solid rgba(138, 124, 180, 0.2);
   border-radius: 40px;
-  color: #5a5a5a;
+  color: #8a7cb4; /* Beautiful light purple for inactive state */
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   position: relative;
   overflow: hidden;
@@ -238,17 +238,17 @@
 @media (prefers-color-scheme: light) {
   .floating-dock {
     background: rgba(255, 255, 255, 0.85);
-    border-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(138, 124, 180, 0.2);
   }
 
   .dock-item {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.02));
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #1f2937;
+    background: rgba(138, 124, 180, 0.05);
+    border-color: rgba(138, 124, 180, 0.1);
+    color: #8a7cb4;
   }
 
   .dock-item:hover {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.05));
-    border-color: rgba(99, 102, 241, 0.3);
+    background: rgba(138, 124, 180, 0.15);
+    border-color: rgba(138, 124, 180, 0.3);
   }
 }
