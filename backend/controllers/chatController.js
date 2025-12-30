@@ -30,8 +30,8 @@ Please reach out to someone you trust right now - a friend, family member, or a 
 
 If you need immediate support, please contact:
 
-🇮🇳 India Helpline: +91-9152987821
-🌍 Global Helplines: https://findahelpline.com
+India Helpline: +91-9152987821
+Global Helplines: https://findahelpline.com
 
 You don't have to go through this alone. There is help available, and things can get better.`,
     isCrisis: true,

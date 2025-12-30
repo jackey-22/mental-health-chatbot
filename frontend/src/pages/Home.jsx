@@ -1,5 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { 
+  AutoAwesome as SparklesIcon, 
+  ArrowForward as ArrowForwardIcon,
+  Assignment as AssessmentIcon,
+  TrendingUp as AnalyticsIcon,
+  ChatBubbleOutline as ChatIcon,
+  FavoriteBorder as SupportIcon,
+  SecurityOutlined as SecurityIcon,
+  RecordVoiceOverOutlined as ShareIcon,
+  CheckCircleOutline as ReceiveIcon,
+  LocalHospitalOutlined as HelpIcon
+} from '@mui/icons-material';
 import './Home.css';
 
 const Home = () => {
@@ -40,7 +52,7 @@ const Home = () => {
           <div className="hero-content">
             <div className="hero-badge-wrapper">
               <div className="hero-badge">
-                <span className="badge-icon">✨</span>
+                <span className="badge-icon"><SparklesIcon sx={{ fontSize: 18 }} /></span>
                 <span className="badge-text">Here for you, always</span>
                 <div className="badge-glow"></div>
               </div>
@@ -74,9 +86,7 @@ const Home = () => {
               >
                 <span className="btn-text">Start a Conversation</span>
                 <span className="btn-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
+                  <ArrowForwardIcon />
                 </span>
                 <span className="btn-shine"></span>
                 <span className="btn-ripple"></span>
@@ -85,12 +95,14 @@ const Home = () => {
                 className="btn-secondary btn-fancy-secondary"
                 onClick={() => navigate('/assessment')}
               >
+                <AssessmentIcon sx={{ mr: 1, fontSize: 20 }} />
                 <span>Take PHQ-9 Assessment</span>
               </button>
               <button 
                 className="btn-secondary btn-fancy-secondary"
                 onClick={() => navigate('/analytics')}
               >
+                <AnalyticsIcon sx={{ mr: 1, fontSize: 20 }} />
                 <span>View Analytics</span>
               </button>
             </div>
@@ -165,9 +177,7 @@ const Home = () => {
           <div className="safety-cards">
             <div className="safety-card">
               <div className="safety-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
+                <ChatIcon />
               </div>
               <h3>You're not judged</h3>
               <p>
@@ -179,11 +189,7 @@ const Home = () => {
 
             <div className="safety-card">
               <div className="safety-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
+                <SupportIcon />
               </div>
               <h3>You're not alone</h3>
               <p>
@@ -195,10 +201,7 @@ const Home = () => {
 
             <div className="safety-card">
               <div className="safety-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                </svg>
+                <SecurityIcon />
               </div>
               <h3>You can stay anonymous</h3>
               <p>
@@ -216,9 +219,7 @@ const Home = () => {
         <div className="container">
           <div className="how-it-works-header">
             <div className="how-it-works-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
+              <AnalyticsIcon sx={{ fontSize: 16, mr: 1 }} />
               <span>3-STEP SUPPORT JOURNEY</span>
             </div>
             <h2 className="section-title">
@@ -239,9 +240,7 @@ const Home = () => {
               <div className="step-content">
                 <div className="step-header">
                   <div className="step-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                    </svg>
+                    <ShareIcon />
                   </div>
                   <h3 className="step-title">Share Your Thoughts</h3>
                 </div>
@@ -260,10 +259,7 @@ const Home = () => {
               <div className="step-content">
                 <div className="step-header">
                   <div className="step-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                      <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
+                    <ReceiveIcon />
                   </div>
                   <h3 className="step-title">Receive Support</h3>
                 </div>
@@ -281,10 +277,7 @@ const Home = () => {
               <div className="step-content">
                 <div className="step-header">
                   <div className="step-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                      <circle cx="12" cy="10" r="3"/>
-                    </svg>
+                    <HelpIcon />
                   </div>
                   <h3 className="step-title">Find Help When Needed</h3>
                 </div>

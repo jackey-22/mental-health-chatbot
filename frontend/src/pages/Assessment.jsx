@@ -21,6 +21,9 @@ import {
   CheckCircle as CheckIcon,
   Psychology as PsychologyIcon,
   Phone as PhoneIcon,
+  Analytics as AnalyticsIcon,
+  Lightbulb as RecommendationIcon,
+  ReportProblem as WarningIcon
 } from '@mui/icons-material';
 import './Assessment.css';
 
@@ -147,11 +150,12 @@ const Assessment = () => {
                 <Paper 
                   sx={{ 
                     p: 3, 
-                    background: 'linear-gradient(135deg, #667eea15, #764ba215)',
-                    border: '2px solid #667eea30',
+                    background: 'linear-gradient(135deg, rgba(138, 124, 180, 0.1), rgba(155, 143, 197, 0.1))',
+                    border: '2px solid rgba(138, 124, 180, 0.2)',
+                    borderRadius: '24px'
                   }}
                 >
-                  <Typography variant="h2" sx={{ fontWeight: 900, color: '#667eea' }}>
+                  <Typography variant="h2" sx={{ fontWeight: 900, color: '#8a7cb4' }}>
                     {result.totalScore}
                     <Typography component="span" variant="h4" sx={{ color: '#64748b' }}>
                       {' '}/27
@@ -164,8 +168,8 @@ const Assessment = () => {
               </Box>
 
               <Box sx={{ mb: 3 }}>
-                <Typography variant="h6" sx={{ fontWeight: 700, color: '#1e293b', mb: 2 }}>
-                  📊 What This Means:
+                <Typography variant="h6" sx={{ fontWeight: 700, color: '#1e293b', mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <AnalyticsIcon /> What This Means:
                 </Typography>
                 <Paper sx={{ p: 2, bgcolor: '#f8fafc' }}>
                   <Typography variant="body1" sx={{ color: '#475569' }}>
@@ -175,8 +179,8 @@ const Assessment = () => {
               </Box>
 
               <Box sx={{ mb: 3 }}>
-                <Typography variant="h6" sx={{ fontWeight: 700, color: '#1e293b', mb: 2 }}>
-                  💡 Recommendation:
+                <Typography variant="h6" sx={{ fontWeight: 700, color: '#1e293b', mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <RecommendationIcon /> Recommendation:
                 </Typography>
                 <Paper sx={{ p: 2, bgcolor: '#f8fafc' }}>
                   <Typography variant="body1" sx={{ color: '#475569' }}>
@@ -191,12 +195,12 @@ const Assessment = () => {
                   icon={<PhoneIcon />}
                   sx={{ mb: 3 }}
                 >
-                  <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
-                    ⚠️ Important Resources:
+                  <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1, display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <WarningIcon fontSize="small" /> Important Resources:
                   </Typography>
                   <Typography variant="body2">
-                    🇮🇳 India Helpline: <strong>+91-9152987821</strong><br />
-                    🌍 Global Helplines: <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer" style={{ color: '#667eea', fontWeight: 600 }}>findahelpline.com</a>
+                    India Helpline: <strong>+91-9152987821</strong><br />
+                    Global Helplines: <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer" style={{ color: '#8a7cb4', fontWeight: 600 }}>findahelpline.com</a>
                   </Typography>
                 </Alert>
               )}
@@ -207,9 +211,14 @@ const Assessment = () => {
                   size="large"
                   onClick={resetAssessment}
                   sx={{
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background: 'linear-gradient(135deg, #8a7cb4 0%, #9b8fc5 100%)',
                     fontWeight: 600,
                     px: 4,
+                    borderRadius: '50px',
+                    boxShadow: '0 4px 16px rgba(138, 124, 180, 0.3)',
+                    '&:hover': {
+                      background: 'linear-gradient(135deg, #9b8fc5 0%, #ac9fd6 100%)',
+                    }
                   }}
                 >
                   Take Another Assessment
@@ -219,10 +228,15 @@ const Assessment = () => {
                   size="large"
                   onClick={() => navigate('/analytics')}
                   sx={{
-                    borderColor: '#667eea',
-                    color: '#667eea',
+                    borderColor: '#8a7cb4',
+                    color: '#8a7cb4',
                     fontWeight: 600,
                     px: 4,
+                    borderRadius: '50px',
+                    '&:hover': {
+                      borderColor: '#9b8fc5',
+                      bgcolor: 'rgba(138, 124, 180, 0.05)',
+                    }
                   }}
                 >
                   View Analytics
@@ -239,7 +253,7 @@ const Assessment = () => {
     return (
       <Box className="assessment-container">
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', gap: 2 }}>
-          <Typography variant="h6" sx={{ color: '#fff' }}>Loading assessment...</Typography>
+          <Typography variant="h6" sx={{ color: '#8a7cb4' }}>Loading assessment...</Typography>
         </Box>
       </Box>
     );
@@ -253,17 +267,17 @@ const Assessment = () => {
       <Container maxWidth="md" sx={{ py: 4 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <PsychologyIcon sx={{ fontSize: 40, color: '#fff' }} />
-            <Typography variant="h4" sx={{ color: '#fff', fontWeight: 700 }}>
+            <PsychologyIcon sx={{ fontSize: 40, color: '#8a7cb4' }} />
+            <Typography variant="h4" sx={{ color: '#2d2d2d', fontWeight: 700 }}>
               PHQ-9 Assessment
             </Typography>
           </Box>
           <IconButton 
             onClick={() => navigate('/')}
             sx={{ 
-              bgcolor: 'rgba(255,255,255,0.2)', 
-              color: '#fff',
-              '&:hover': { bgcolor: 'rgba(255,255,255,0.3)' }
+              bgcolor: 'rgba(138, 124, 180, 0.1)', 
+              color: '#8a7cb4',
+              '&:hover': { bgcolor: 'rgba(138, 124, 180, 0.2)' }
             }}
           >
             <HomeIcon />
@@ -290,9 +304,9 @@ const Assessment = () => {
                 sx={{
                   height: 8,
                   borderRadius: 4,
-                  bgcolor: '#e2e8f0',
+                  bgcolor: 'rgba(138, 124, 180, 0.1)',
                   '& .MuiLinearProgress-bar': {
-                    background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+                    background: 'linear-gradient(90deg, #8a7cb4 0%, #9b8fc5 100%)',
                     borderRadius: 4,
                   }
                 }}
@@ -328,14 +342,14 @@ const Assessment = () => {
                       fontWeight: 600,
                       fontSize: '1rem',
                       ...(answers[currentStep] === option.value ? {
-                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                        boxShadow: '0 4px 20px rgba(102,126,234,0.4)',
+                        background: 'linear-gradient(135deg, #8a7cb4 0%, #9b8fc5 100%)',
+                        boxShadow: '0 4px 20px rgba(138, 124, 180, 0.4)',
                       } : {
-                        borderColor: '#e2e8f0',
+                        borderColor: 'rgba(138, 124, 180, 0.2)',
                         color: '#475569',
                         '&:hover': {
-                          borderColor: '#667eea',
-                          bgcolor: '#667eea05',
+                          borderColor: '#8a7cb4',
+                          bgcolor: 'rgba(138, 124, 180, 0.05)',
                         }
                       })
                     }}
@@ -346,7 +360,7 @@ const Assessment = () => {
               </Box>
             </Box>
 
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2 }}>
               <Button
                 variant="outlined"
                 size="large"
@@ -354,9 +368,14 @@ const Assessment = () => {
                 onClick={handlePrevious}
                 disabled={currentStep === 0}
                 sx={{
-                  borderColor: '#e2e8f0',
-                  color: '#475569',
+                  borderColor: 'rgba(138, 124, 180, 0.3)',
+                  color: '#8a7cb4',
                   fontWeight: 600,
+                  borderRadius: '12px',
+                  '&:hover': {
+                    borderColor: '#8a7cb4',
+                    bgcolor: 'rgba(138, 124, 180, 0.05)',
+                  }
                 }}
               >
                 Previous
@@ -370,9 +389,14 @@ const Assessment = () => {
                   onClick={handleNext}
                   disabled={answers[currentStep] === null}
                   sx={{
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background: 'linear-gradient(135deg, #8a7cb4 0%, #9b8fc5 100%)',
                     fontWeight: 600,
                     px: 4,
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 16px rgba(138, 124, 180, 0.3)',
+                    '&:hover': {
+                      background: 'linear-gradient(135deg, #9b8fc5 0%, #ac9fd6 100%)',
+                    }
                   }}
                 >
                   Next
@@ -385,9 +409,14 @@ const Assessment = () => {
                   onClick={handleSubmit}
                   disabled={loading || answers.some(ans => ans === null)}
                   sx={{
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background: 'linear-gradient(135deg, #8a7cb4 0%, #9b8fc5 100%)',
                     fontWeight: 600,
                     px: 4,
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 16px rgba(138, 124, 180, 0.3)',
+                    '&:hover': {
+                      background: 'linear-gradient(135deg, #9b8fc5 0%, #ac9fd6 100%)',
+                    }
                   }}
                 >
                   {loading ? 'Submitting...' : 'Submit Assessment'}

@@ -1,5 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { 
+  ArrowBack as ArrowBackIcon,
+  Psychology as PsychologyIcon,
+  InfoOutlined as InfoIcon,
+  Add as AddIcon,
+  Assignment as AssessmentIcon,
+  TrendingUp as AnalyticsIcon,
+  Send as SendIcon
+} from '@mui/icons-material';
 import MessageBubble from '../components/MessageBubble';
 import { sendMessage } from '../services/api';
 import './Chat.css';
@@ -114,15 +123,11 @@ const Chat = () => {
       <div className="chat-header">
         <div className="header-content">
           <button className="back-button" onClick={() => navigate('/')} aria-label="Go back to home">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
+            <ArrowBackIcon />
           </button>
           <div className="header-info">
             <div className="ai-avatar">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
+              <PsychologyIcon />
             </div>
             <div className="header-text">
               <h1>Mental Health Support</h1>
@@ -135,10 +140,7 @@ const Chat = () => {
         </div>
         
         <div className="header-disclaimer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 16v-4M12 8h.01"/>
-          </svg>
+          <InfoIcon sx={{ fontSize: 16 }} />
           <span>This chatbot provides emotional support, not medical advice.</span>
         </div>
       </div>
@@ -190,9 +192,7 @@ const Chat = () => {
               onClick={handleNewConversation}
               title="Start New Chat"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 5v14M5 12h14"/>
-              </svg>
+              <AddIcon sx={{ fontSize: 18 }} />
               New Chat
             </button>
             <button 
@@ -201,7 +201,8 @@ const Chat = () => {
               onClick={() => navigate('/assessment')}
               title="Take PHQ-9 Assessment"
             >
-              📊 Assessment
+              <AssessmentIcon sx={{ fontSize: 18, mr: 0.5 }} />
+              Assessment
             </button>
             <button 
               type="button"
@@ -209,7 +210,8 @@ const Chat = () => {
               onClick={() => navigate('/analytics')}
               title="View Analytics"
             >
-              📈 Analytics
+              <AnalyticsIcon sx={{ fontSize: 18, mr: 0.5 }} />
+              Analytics
             </button>
           </div>
           <div className="input-wrapper">
@@ -227,9 +229,7 @@ const Chat = () => {
               disabled={isLoading || !inputValue.trim()}
               aria-label="Send message"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-              </svg>
+              <SendIcon sx={{ fontSize: 20 }} />
             </button>
           </div>
         </form>
